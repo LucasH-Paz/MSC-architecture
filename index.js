@@ -6,6 +6,10 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
+// Endpoints
+
+
+// Tratamento de erros geral
 
 // Iniciando o servidor
 const PORT = process.env.PORT || 3000;
