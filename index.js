@@ -6,7 +6,7 @@ const validator = require('express-joi-validation').createValidator({});
 
 const cepController =  require('./Cep/cepController');
 
-const { handleErrors } = require('./Cep/ErrorMiddleware');
+const { handleErrors } = require('./General/ErrorMiddleware');
 const { validateCep } = require('./Cep/cepMiddlewares');
 
 const bodySchema = Joi.object({
