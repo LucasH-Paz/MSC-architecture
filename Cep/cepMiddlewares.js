@@ -1,6 +1,4 @@
-const createError = (code, message) => ({
-  error: { code, message }
-});
+const createError = (code, message) => ({ code, message });
 
 const validateCep = (req, _res, next) => {
   const { cep } = req.params;
@@ -13,4 +11,5 @@ const validateCep = (req, _res, next) => {
 
 module.exports = {
   validateCep,
+  createError,
 };
