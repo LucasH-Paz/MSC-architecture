@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const Joi = require('joi');
 const validator = require('express-joi-validation').createValidator({});
 
+const { handleErros } = require('./Cep/ErrorMiddleware');
+
 const bodySchema = Joi.object({
   cep: Joi.string().pattern(/\d{5}-\d{3}/).required(),
   logradouro: Joi.string().not().empty().required().max(50),
@@ -17,9 +19,10 @@ const app = express();
 app.use(bodyParser.json());
 
 // Endpoints
-
+app.get('/cep/:cep', );
 
 // Tratamento de erros geral
+app.use(handleErrors);
 
 // Iniciando o servidor
 const PORT = process.env.PORT || 3000;
