@@ -24,6 +24,8 @@ app.use(bodyParser.json());
 // Endpoints
 app.get('/cep/:cep', validateCep, cepController.find);
 
+app.post('/cep', validator.body(bodySchema), cepController.add);
+
 // Tratamento de erros geral
 app.use(handleErrors);
 

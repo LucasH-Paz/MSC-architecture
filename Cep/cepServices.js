@@ -18,6 +18,20 @@ const find = async (cep) => {
   return await cepModel.findByCep(fixedCep);
 };
 
+const add = async (cepObj) => {
+  const { cep } = cepObj;
+  const fixedCep = parseToWithout(cep);
+
+  const exists = await find(cep);
+
+  if ( exists && exists.cep) return { message: 'cep already exists'};
+
+  const addNewObj = await cepModel.addNew({ ...cepObj, cep: fixedCep });
+  const fixedOutput = { ...addNewObj, cep };
+  return fixedOutput;
+};
+
 module.exports = {
   find,
+  add,
 }
